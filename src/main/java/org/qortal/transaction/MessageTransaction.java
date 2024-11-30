@@ -269,7 +269,7 @@ public class MessageTransaction extends Transaction {
 			return ValidationResult.OK;
 
 		// Wrap and delegate final processable checks to Payment class
-		return new Payment(this.repository).isProcessable(this.messageTransactionData.getSenderPublicKey(),
+		return new Payment(this.repository).isValid(this.messageTransactionData.getSenderPublicKey(),
 				getPaymentData(), this.messageTransactionData.getFee(), true);
 	}
 
