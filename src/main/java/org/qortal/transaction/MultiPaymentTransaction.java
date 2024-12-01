@@ -64,7 +64,7 @@ public class MultiPaymentTransaction extends Transaction {
 	public ValidationResult isProcessable() throws DataException {
 		List<PaymentData> payments = this.multiPaymentTransactionData.getPayments();
 
-		return new Payment(this.repository).isProcessable(this.multiPaymentTransactionData.getSenderPublicKey(), payments, this.multiPaymentTransactionData.getFee());
+		return new Payment(this.repository).isValid(this.multiPaymentTransactionData.getSenderPublicKey(), payments, this.multiPaymentTransactionData.getFee());
 	}
 
 	@Override

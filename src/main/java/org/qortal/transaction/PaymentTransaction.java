@@ -58,7 +58,7 @@ public class PaymentTransaction extends Transaction {
 	@Override
 	public ValidationResult isProcessable() throws DataException {
 		// Wrap and delegate final processable checks to Payment class
-		return new Payment(this.repository).isProcessable(this.paymentTransactionData.getSenderPublicKey(), getPaymentData(), this.paymentTransactionData.getFee());
+		return new Payment(this.repository).isValid(this.paymentTransactionData.getSenderPublicKey(), getPaymentData(), this.paymentTransactionData.getFee());
 	}
 
 	@Override

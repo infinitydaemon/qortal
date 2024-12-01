@@ -67,7 +67,7 @@ public class TransferAssetTransaction extends Transaction {
 	@Override
 	public ValidationResult isProcessable() throws DataException {
 		// Wrap asset transfer as a payment and delegate final processable checks to Payment class
-		return new Payment(this.repository).isProcessable(this.transferAssetTransactionData.getSenderPublicKey(), getPaymentData(), this.transferAssetTransactionData.getFee());
+		return new Payment(this.repository).isValid(this.transferAssetTransactionData.getSenderPublicKey(), getPaymentData(), this.transferAssetTransactionData.getFee());
 	}
 
 	@Override
